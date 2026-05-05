@@ -30,6 +30,9 @@ Classify the change before deciding:
 
 **Rule of thumb:** If the change alters who is responsible for what, how components talk to each other, or what patterns are used → ADR required. If the change keeps the design identical and only fixes or cleans up → ADR not required.
 
+**Uncertain? Default to ADR.**
+If you're unsure whether a change requires an ADR, write one. A one-page ADR for a simple change is cheap. A missing ADR for a design change is expensive.
+
 ## When to Update (Not Just Write)
 
 - Before implementation begins
@@ -62,6 +65,15 @@ What did we choose and why?
 ## Status
 Proposed / Accepted / Deprecated by ADR-NNN
 ```
+
+## Acceptance Criteria
+
+An ADR is complete only when:
+- [ ] A reader can understand WHY the decision was made without reading the code
+- [ ] Consequences include at least one negative trade-off (no decision is free)
+- [ ] Alternatives section has at least one rejected option with reason
+
+Incomplete ADRs get sent back. "Decision: Use X. Consequences: Good." is not acceptable.
 
 ## Rules
 

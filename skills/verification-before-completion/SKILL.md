@@ -32,8 +32,11 @@ BEFORE claiming any status or expressing satisfaction:
 4. VERIFY: Does output confirm the claim?
    - If NO: State actual status with evidence
    - If YES: State claim WITH evidence
-5. CHECK ADR: If the work involved architectural decisions, verify the ADR exists and matches the implementation
-   - If NO: State ADR gap before claiming completion
+5. CHECK ADR:
+   - If ADR was required: Does it exist? Does it match the implementation?
+   - If implementation diverged from ADR: Was the ADR updated to reflect the change?
+   - If ADR is incomplete (no trade-offs, no rejected alternatives): Flag it
+   - If NO to any: State ADR gap before claiming completion
 6. ONLY THEN: Make the claim
 
 Skip any step = lying, not verifying
