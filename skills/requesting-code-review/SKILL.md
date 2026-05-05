@@ -29,7 +29,10 @@ BASE_SHA=$(git rev-parse HEAD~1)  # or origin/main
 HEAD_SHA=$(git rev-parse HEAD)
 ```
 
-**2. Dispatch code reviewer subagent:**
+**2. Verify ADR alignment:**
+Check `docs/adr/` for the relevant ADR. Confirm the implementation matches the ADR. If the code diverges from the ADR, flag it in the review dispatch.
+
+**3. Dispatch code reviewer subagent:**
 
 Use Task tool with `general-purpose` type, fill template at `code-reviewer.md`
 
@@ -39,7 +42,7 @@ Use Task tool with `general-purpose` type, fill template at `code-reviewer.md`
 - `{BASE_SHA}` - Starting commit
 - `{HEAD_SHA}` - Ending commit
 
-**3. Act on feedback:**
+**4. Act on feedback:**
 - Fix Critical issues immediately
 - Fix Important issues before proceeding
 - Note Minor issues for later
@@ -94,6 +97,7 @@ You: [Fix progress indicators]
 - Ignore Critical issues
 - Proceed with unfixed Important issues
 - Argue with valid technical feedback
+- Review code that diverges from its ADR without flagging it
 
 **If reviewer wrong:**
 - Push back with technical reasoning

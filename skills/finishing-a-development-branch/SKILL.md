@@ -37,6 +37,28 @@ Stop. Don't proceed to Step 2.
 
 **If tests pass:** Continue to Step 2.
 
+### ADR Gate
+
+Before presenting options, verify ADR alignment:
+
+```bash
+# Check for ADR
+ls docs/adr/*.md 2>/dev/null || echo "No ADR found"
+```
+
+**If this change was classified as not requiring an ADR (simple bug fix, naming change, no design impact):**
+- Skip this gate and continue to Step 2.
+
+**If ADR is missing and the change was classified as requiring one:**
+- Stop. Do not present merge options.
+- Report: "ADR missing. Cannot complete branch until ADR is written."
+
+**If ADR and code are out of sync:**
+- Stop. Do not present merge options.
+- Report: "ADR and implementation are out of sync. Update the ADR or the code before completing."
+
+**If ADR aligns:** Continue to Step 2.
+
 ### Step 2: Detect Environment
 
 **Determine workspace state before presenting options:**
@@ -206,6 +228,10 @@ git worktree prune  # Self-healing: clean up any stale registrations
 - **Problem:** Merge broken code, create failing PR
 - **Fix:** Always verify tests before offering options
 
+**Skipping ADR verification**
+- **Problem:** Merge code without required ADR or with ADR out of sync
+- **Fix:** Always verify ADR alignment before presenting options
+
 **Open-ended questions**
 - **Problem:** "What should I do next?" is ambiguous
 - **Fix:** Present exactly 4 structured options (or 3 for detached HEAD)
@@ -234,6 +260,7 @@ git worktree prune  # Self-healing: clean up any stale registrations
 
 **Never:**
 - Proceed with failing tests
+- Proceed without ADR verification
 - Merge without verifying tests on result
 - Delete work without confirmation
 - Force-push without explicit request

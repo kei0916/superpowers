@@ -104,6 +104,7 @@ FOR multi-item feedback:
   1. Clarify anything unclear FIRST
   2. Then implement in this order:
      - Blocking issues (breaks, security)
+     - ADR updates (if implementation diverges from ADR, fix the ADR or the code)
      - Simple fixes (typos, imports)
      - Complex fixes (refactoring, logic)
   3. Test each fix individually
@@ -118,6 +119,7 @@ Push back when:
 - Violates YAGNI (unused feature)
 - Technically incorrect for this stack
 - Legacy/compatibility reasons exist
+- Conflicts with the ADR (implementation should match ADR; if ADR is wrong, update the ADR)
 - Conflicts with your human partner's architectural decisions
 
 **How to push back:**

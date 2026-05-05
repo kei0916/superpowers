@@ -41,6 +41,18 @@ digraph when_to_use {
 
 ## The Process
 
+**Change classification:** Before reading the plan, determine whether this work requires an ADR:
+
+1. **Does this change modify any boundary, interface, or data flow?**
+2. **Does this change shift responsibilities between components?**
+3. **Does this change introduce or replace a pattern, algorithm, or dependency?**
+4. **Is the root cause a design flaw that the fix corrects?**
+
+If **YES** to any → ADR required. Proceed to ADR check below.
+If **NO** to all → ADR not required. Skip ADR check and read the plan.
+
+**ADR check (if required):** Verify an ADR exists in `docs/adr/NNN-<feature-name>.md`. If missing, stop and invoke superpowers:writing-architecture-decision-records. If implementation diverges from the ADR, update the ADR before proceeding.
+
 ```dot
 digraph process {
     rankdir=TB;
@@ -60,11 +72,16 @@ digraph process {
         "Mark task complete in TodoWrite" [shape=box];
     }
 
+    "Classify change (ADR required?)" [shape=diamond];
+    "Verify ADR exists" [shape=box];
     "Read plan, extract all tasks with full text, note context, create TodoWrite" [shape=box];
     "More tasks remain?" [shape=diamond];
     "Dispatch final code reviewer subagent for entire implementation" [shape=box];
     "Use superpowers:finishing-a-development-branch" [shape=box style=filled fillcolor=lightgreen];
 
+    "Classify change (ADR required?)" -> "Verify ADR exists" [label="yes"];
+    "Classify change (ADR required?)" -> "Read plan, extract all tasks with full text, note context, create TodoWrite" [label="no"];
+    "Verify ADR exists" -> "Read plan, extract all tasks with full text, note context, create TodoWrite";
     "Read plan, extract all tasks with full text, note context, create TodoWrite" -> "Dispatch implementer subagent (./implementer-prompt.md)";
     "Dispatch implementer subagent (./implementer-prompt.md)" -> "Implementer subagent asks questions?";
     "Implementer subagent asks questions?" -> "Answer questions, provide context" [label="yes"];
@@ -236,6 +253,8 @@ Done!
 ## Red Flags
 
 **Never:**
+- Start implementation without an ADR
+- Let ADR and code drift out of sync
 - Start implementation on main/master branch without explicit user consent
 - Skip reviews (spec compliance OR code quality)
 - Proceed with unfixed issues
@@ -267,6 +286,7 @@ Done!
 ## Integration
 
 **Required workflow skills:**
+- **superpowers:writing-architecture-decision-records** - Ensures ADR exists before implementation and stays in sync
 - **superpowers:using-git-worktrees** - Ensures isolated workspace (creates one or verifies existing)
 - **superpowers:writing-plans** - Creates the plan this skill executes
 - **superpowers:requesting-code-review** - Code review template for reviewer subagents

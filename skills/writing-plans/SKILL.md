@@ -60,6 +60,21 @@ This structure informs the task decomposition. Each task should produce self-con
 ---
 ```
 
+## ADR Reference
+
+Before defining tasks, determine whether this plan requires an ADR:
+
+1. **Does this change modify any boundary, interface, or data flow?**
+2. **Does this change shift responsibilities between components?**
+3. **Does this change introduce or replace a pattern, algorithm, or dependency?**
+4. **Is the root cause a design flaw that the fix corrects?**
+
+If **NO** to all → ADR not required. Proceed to task definition.
+
+If **YES** to any → ADR required. Verify an ADR exists in `docs/adr/NNN-<feature-name>.md`. If missing, stop and invoke superpowers:writing-architecture-decision-records.
+
+Implementation tasks must remain consistent with the ADR. If the plan reveals a decision not captured in the ADR, update the ADR before proceeding.
+
 ## Task Structure
 
 ````markdown
@@ -128,6 +143,8 @@ After writing the complete plan, look at the spec with fresh eyes and check the 
 **2. Placeholder scan:** Search your plan for red flags — any of the patterns from the "No Placeholders" section above. Fix them.
 
 **3. Type consistency:** Do the types, method signatures, and property names you used in later tasks match what you defined in earlier tasks? A function called `clearLayers()` in Task 3 but `clearFullLayers()` in Task 7 is a bug.
+
+**4. ADR compliance:** Does the plan introduce any architectural decision not captured in the ADR? If yes, write or update the ADR before proceeding.
 
 If you find issues, fix them inline. No need to re-review — just fix and move on. If you find a spec requirement with no task, add the task.
 

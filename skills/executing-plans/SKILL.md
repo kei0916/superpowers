@@ -15,11 +15,24 @@ Load plan, review critically, execute all tasks, report when complete.
 
 ## The Process
 
+### Step 0: Classify the Change
+
+Before loading the plan, determine whether this work requires an ADR:
+
+1. **Does this change modify any boundary, interface, or data flow?**
+2. **Does this change shift responsibilities between components?**
+3. **Does this change introduce or replace a pattern, algorithm, or dependency?**
+4. **Is the root cause a design flaw that the fix corrects?**
+
+If **YES** to any → ADR required. Verify ADR exists (Step 1, item 2).
+If **NO** to all → ADR not required. Skip ADR verification and proceed with Step 1.
+
 ### Step 1: Load and Review Plan
 1. Read plan file
-2. Review critically - identify any questions or concerns about the plan
-3. If concerns: Raise them with your human partner before starting
-4. If no concerns: Create TodoWrite and proceed
+2. **If ADR required:** Verify ADR exists in `docs/adr/NNN-<feature-name>.md`. If missing, stop and invoke superpowers:writing-architecture-decision-records.
+3. Review critically - identify any questions or concerns about the plan
+4. If concerns: Raise them with your human partner before starting
+5. If no concerns: Create TodoWrite and proceed
 
 ### Step 2: Execute Tasks
 
@@ -27,7 +40,8 @@ For each task:
 1. Mark as in_progress
 2. Follow each step exactly (plan has bite-sized steps)
 3. Run verifications as specified
-4. Mark as completed
+4. **ADR compliance:** If a task changes an architectural decision, update the ADR before marking complete
+5. Mark as completed
 
 ### Step 3: Complete Development
 
@@ -65,6 +79,7 @@ After all tasks complete and verified:
 ## Integration
 
 **Required workflow skills:**
+- **superpowers:writing-architecture-decision-records** - Ensures ADR exists before implementation and stays in sync
 - **superpowers:using-git-worktrees** - Ensures isolated workspace (creates one or verifies existing)
 - **superpowers:writing-plans** - Creates the plan this skill executes
 - **superpowers:finishing-a-development-branch** - Complete development after all tasks
