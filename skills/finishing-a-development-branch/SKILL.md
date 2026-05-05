@@ -46,10 +46,13 @@ Before presenting options, verify ADR alignment:
 ls docs/adr/*.md 2>/dev/null || echo "No ADR found"
 ```
 
-**If this change was classified as not requiring an ADR (simple bug fix, naming change, no design impact):**
+**If no design-affecting changes were made (simple bug fix, naming change, no boundary/responsibility/pattern/dependency changes):**
 - Skip this gate and continue to Step 2.
 
-**If ADR is missing and the change was classified as requiring one:**
+**If design-affecting changes were made:**
+- Check `docs/adr/` for the relevant ADR.
+
+**If ADR is missing:**
 - Stop. Do not present merge options.
 - Report: "ADR missing. Cannot complete branch until ADR is written."
 

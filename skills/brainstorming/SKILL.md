@@ -46,6 +46,7 @@ digraph brainstorming {
     "Write design doc" [shape=box];
     "Spec self-review\n(fix inline)" [shape=box];
     "User reviews spec?" [shape=diamond];
+    "Classify: ADR\nrequired?" [shape=diamond];
     "Write ADR" [shape=box];
     "Invoke writing-plans skill" [shape=doublecircle];
 
@@ -61,7 +62,9 @@ digraph brainstorming {
     "Write design doc" -> "Spec self-review\n(fix inline)";
     "Spec self-review\n(fix inline)" -> "User reviews spec?";
     "User reviews spec?" -> "Write design doc" [label="changes requested"];
-    "User reviews spec?" -> "Write ADR" [label="approved"];
+    "User reviews spec?" -> "Classify: ADR\nrequired?" [label="approved"];
+    "Classify: ADR\nrequired?" -> "Write ADR" [label="yes"];
+    "Classify: ADR\nrequired?" -> "Invoke writing-plans skill" [label="no"];
     "Write ADR" -> "Invoke writing-plans skill";
 }
 ```

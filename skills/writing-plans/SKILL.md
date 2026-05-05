@@ -110,7 +110,16 @@ def function(input):
 Run: `pytest tests/path/test.py::test_name -v`
 Expected: PASS
 
-- [ ] **Step 5: Commit**
+- [ ] **Step 5: Refactor**
+
+Clean up while keeping tests green:
+- Remove duplication
+- Improve names
+- Extract helpers
+
+Do NOT add behavior. Run tests after each change to confirm green.
+
+- [ ] **Step 6: Commit**
 
 ```bash
 git add tests/path/test.py src/path/file.py

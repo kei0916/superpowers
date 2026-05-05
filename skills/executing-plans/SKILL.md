@@ -40,7 +40,7 @@ For each task:
 1. Mark as in_progress
 2. Follow each step exactly (plan has bite-sized steps)
 3. Run verifications as specified
-4. **ADR compliance:** If a task changes an architectural decision, update the ADR before marking complete
+4. **ADR compliance:** If a task changes an architectural decision, update the relevant ADR in `docs/adr/` before marking complete. The agent executing the task is responsible for keeping the ADR in sync.
 5. Mark as completed
 
 ### Step 3: Complete Development

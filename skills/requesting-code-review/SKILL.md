@@ -29,8 +29,10 @@ BASE_SHA=$(git rev-parse HEAD~1)  # or origin/main
 HEAD_SHA=$(git rev-parse HEAD)
 ```
 
-**2. Verify ADR alignment:**
-Check `docs/adr/` for the relevant ADR. Confirm the implementation matches the ADR. If the code diverges from the ADR, flag it in the review dispatch.
+**2. Verify ADR alignment (if design-affecting changes were made):**
+If this task involved changes to boundaries, responsibilities, patterns, or dependencies, check `docs/adr/` for the relevant ADR. Confirm the implementation matches the ADR. If the code diverges from the ADR, flag it in the review dispatch.
+
+If no design-affecting changes were made, skip this step.
 
 **3. Dispatch code reviewer subagent:**
 

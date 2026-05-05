@@ -1,6 +1,6 @@
 ---
 name: writing-architecture-decision-records
-description: Use when any design decision is made, modified, or added. Required before implementation begins and whenever specs or code change.
+description: Use when a design decision is made, modified, or added that affects boundaries, responsibilities, patterns, or dependencies.
 ---
 
 # Writing Architecture Decision Records
@@ -29,6 +29,8 @@ Classify the change before deciding:
 | **Simple extraction (no responsibility shift)** | ❌ No | Extract function within same file, inline variable |
 
 **Rule of thumb:** If the change alters who is responsible for what, how components talk to each other, or what patterns are used → ADR required. If the change keeps the design identical and only fixes or cleans up → ADR not required.
+
+**Multi-step refactoring:** If a refactor is planned in stages (e.g., extract then move), write the ADR when the first design-affecting step begins. Don't wait until the final move.
 
 **Uncertain? Default to ADR.**
 If you're unsure whether a change requires an ADR, write one. A one-page ADR for a simple change is cheap. A missing ADR for a design change is expensive.

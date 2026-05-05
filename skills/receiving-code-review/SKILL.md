@@ -104,7 +104,7 @@ FOR multi-item feedback:
   1. Clarify anything unclear FIRST
   2. Then implement in this order:
      - Blocking issues (breaks, security)
-     - ADR updates (if implementation diverges from ADR, fix the ADR or the code)
+     - ADR updates (if the fix changes a design decision, update the ADR before fixing the code)
      - Simple fixes (typos, imports)
      - Complex fixes (refactoring, logic)
   3. Test each fix individually

@@ -51,7 +51,7 @@ digraph when_to_use {
 If **YES** to any → ADR required. Proceed to ADR check below.
 If **NO** to all → ADR not required. Skip ADR check and read the plan.
 
-**ADR check (if required):** Verify an ADR exists in `docs/adr/NNN-<feature-name>.md`. If missing, stop and invoke superpowers:writing-architecture-decision-records. If implementation diverges from the ADR, update the ADR before proceeding.
+**ADR check (if required):** Verify an ADR exists in `docs/adr/NNN-<feature-name>.md`. If missing, stop and invoke superpowers:writing-architecture-decision-records. If implementation diverges from the ADR, update the ADR before proceeding. The implementer is responsible for ADR sync.
 
 ```dot
 digraph process {

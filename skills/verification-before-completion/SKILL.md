@@ -32,11 +32,14 @@ BEFORE claiming any status or expressing satisfaction:
 4. VERIFY: Does output confirm the claim?
    - If NO: State actual status with evidence
    - If YES: State claim WITH evidence
-5. CHECK ADR:
-   - If ADR was required: Does it exist? Does it match the implementation?
+5. CHECK ADR (only if changes affect boundaries, responsibilities, patterns, or dependencies):
+   - Does the relevant ADR exist in `docs/adr/`?
+   - Does the implementation match the ADR?
    - If implementation diverged from ADR: Was the ADR updated to reflect the change?
-   - If ADR is incomplete (no trade-offs, no rejected alternatives): Flag it
+   - Is the ADR complete (trade-offs and rejected alternatives documented)?
    - If NO to any: State ADR gap before claiming completion
+
+   If no design-affecting changes were made, skip this step.
 6. ONLY THEN: Make the claim
 
 Skip any step = lying, not verifying
