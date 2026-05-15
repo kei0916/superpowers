@@ -53,6 +53,11 @@ Task tool (general-purpose):
     - Did they solve the wrong problem?
     - Did they implement the right feature but wrong way?
 
+    **ADR alignment (only if the plan header named an ADR):**
+    - Read the ADR. Does the implementation match the decision it records?
+    - Did the implementer introduce a design-affecting change the ADR does not cover?
+    - Report any divergence explicitly with file:line references.
+
     **Verify by reading code, not by trusting report.**
 
     Report:

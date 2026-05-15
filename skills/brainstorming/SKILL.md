@@ -29,7 +29,7 @@ You MUST create a task for each of these items and complete them in order:
 6. **Write design doc** — save to `docs/superpowers/specs/YYYY-MM-DD-<topic>-design.md` and commit
 7. **Spec self-review** — quick inline check for placeholders, contradictions, ambiguity, scope (see below)
 8. **User reviews written spec** — ask user to review the spec file before proceeding
-9. **Classify and write ADR if required** — If the change affects design (boundaries, responsibilities, patterns, dependencies), document it in `docs/adr/NNN-<topic>.md` using SCQA format.
+9. **Classify and write ADR if required** — Classify via superpowers:writing-architecture-decision-records; if required, write it to `docs/adr/NNN-<short-name>.md` and commit. This is a documentation gate before the writing-plans transition.
 10. **Transition to implementation** — invoke writing-plans skill to create implementation plan
 
 ## Process Flow
@@ -138,9 +138,9 @@ Wait for the user's response. If they request changes, make them and re-run the 
 
 **Implementation:**
 
-- **Classify the change.** If it affects design, write the ADR using superpowers:writing-architecture-decision-records and commit it.
+- **Classify the change** using superpowers:writing-architecture-decision-records (its classification table is the single source of truth). If an ADR is required, write it to `docs/adr/NNN-<short-name>.md` and commit it before transitioning.
 - Invoke the writing-plans skill to create a detailed implementation plan
-- Do NOT invoke any other skill. writing-plans is the next step.
+- The only implementation-*planning* skill after brainstorming is writing-plans. Writing or updating the ADR via superpowers:writing-architecture-decision-records is a documentation gate that happens *before* that transition — it is part of this step, not a detour.
 
 ## Key Principles
 

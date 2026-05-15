@@ -29,10 +29,10 @@ BASE_SHA=$(git rev-parse HEAD~1)  # or origin/main
 HEAD_SHA=$(git rev-parse HEAD)
 ```
 
-**2. Verify ADR alignment (if design-affecting changes were made):**
-If this task involved changes to boundaries, responsibilities, patterns, or dependencies, check `docs/adr/` for the relevant ADR. Confirm the implementation matches the ADR. If the code diverges from the ADR, flag it in the review dispatch.
+**2. Verify ADR alignment (if the plan header named an ADR):**
+If the plan header named an ADR (see superpowers:writing-architecture-decision-records for classification), check `docs/adr/` for the relevant ADR. Confirm the implementation matches the ADR. If the code diverges from the ADR, flag it in the review dispatch.
 
-If no design-affecting changes were made, skip this step.
+If the plan header says `Not required — <reason>`, skip this step. If no plan/header exists, classify via superpowers:writing-architecture-decision-records before deciding whether to skip.
 
 **3. Dispatch code reviewer subagent:**
 
@@ -43,6 +43,7 @@ Use Task tool with `general-purpose` type, fill template at `code-reviewer.md`
 - `{PLAN_OR_REQUIREMENTS}` - What it should do
 - `{BASE_SHA}` - Starting commit
 - `{HEAD_SHA}` - Ending commit
+- `{ADR_STATUS_OR_PATH}` — ADR path from the plan header, `Not required — <reason>`, or `Unknown` if no plan/header exists
 
 **4. Act on feedback:**
 - Fix Critical issues immediately

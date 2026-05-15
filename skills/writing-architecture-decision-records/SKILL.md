@@ -7,11 +7,13 @@ description: Use when a design decision is made, modified, or added that affects
 
 ## Overview
 
-Every design decision lives in an ADR. No exceptions.
+Every *design-affecting* decision lives in an ADR — one that changes boundaries, responsibilities, patterns, dependencies, data flow, or corrects a design-flaw root cause. Decisions that leave the design identical do not.
 
 **Core principle:** If the design changed, the ADR changed.
 
 ## When to Write or Update
+
+**This table is the single source of truth for ADR classification.** Other skills MUST reference this section rather than restating the criteria.
 
 Classify the change before deciding:
 
@@ -65,7 +67,7 @@ What did we choose and why?
 - Alternatives considered and rejected (1 sentence each)
 
 ## Status
-Proposed / Accepted / Deprecated by ADR-NNN
+Proposed / Accepted / Superseded by ADR-NNN
 ```
 
 ## Acceptance Criteria
@@ -82,6 +84,8 @@ Incomplete ADRs get sent back. "Decision: Use X. Consequences: Good." is not acc
 - One decision per ADR
 - Link to related ADRs: `Supersedes ADR-012`, `Depends on ADR-005`
 - Keep it under one page — if it needs more, the decision isn't crisp enough
+- Number ADRs with zero-padded, monotonically increasing integers (`001`, `002`, ...). The next number is one above the highest in `docs/adr/`.
+- Status vocabulary is exactly: `Proposed`, `Accepted`, `Superseded by ADR-NNN`. Do not use `Deprecated`.
 
 ## Red Flags - STOP
 

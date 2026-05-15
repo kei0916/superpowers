@@ -30,11 +30,12 @@ Task tool (general-purpose):
 
     Once you're clear on requirements:
     1. Implement exactly what the task specifies
-    2. Write tests (following TDD if task says to)
-    3. Verify implementation works
-    4. Commit your work
-    5. Self-review (see below)
-    6. Report back
+    2. If the work introduces a design-affecting change that diverges from the plan's ADR (or the plan declared an ADR and your implementation contradicts it), STOP and report it — do not silently proceed. Update the ADR only if the controller confirms.
+    3. Write tests (following TDD if task says to)
+    4. Verify implementation works
+    5. Commit your work
+    6. Self-review (see below)
+    7. Report back
 
     Work from: [directory]
 
@@ -94,6 +95,11 @@ Task tool (general-purpose):
     - Do tests actually verify behavior (not just mock behavior)?
     - Did I follow TDD if required?
     - Are tests comprehensive?
+
+    **ADR alignment:**
+    - If the plan header named an ADR, does my implementation match it?
+    - Did I introduce a design decision the ADR does not cover?
+    - If either is true and I did not resolve it: report DONE_WITH_CONCERNS or NEEDS_CONTEXT.
 
     If you find issues during self-review, fix them now before reporting.
 

@@ -58,23 +58,19 @@ This structure informs the task decomposition. Each task should produce self-con
 
 **Tech Stack:** [Key technologies/libraries]
 
+**ADR:** [docs/adr/NNN-<short-name>.md  —OR—  Not required — <one-line reason>]
+
 ---
 ```
 
 ## ADR Reference
 
-Before defining tasks, determine whether this plan requires an ADR:
+Before defining tasks, classify the change using superpowers:writing-architecture-decision-records (see its classification table — the single source of truth). Do not restate the criteria here.
 
-1. **Does this change modify any boundary, interface, or data flow?**
-2. **Does this change shift responsibilities between components?**
-3. **Does this change introduce or replace a pattern, algorithm, or dependency?**
-4. **Is the root cause a design flaw that the fix corrects?**
+- If **not required**: set the plan header to `**ADR:** Not required — <reason>`.
+- If **required**: ensure the ADR exists at `docs/adr/NNN-<short-name>.md` (write it via the ADR skill if missing), then set the plan header to `**ADR:** docs/adr/NNN-<short-name>.md`.
 
-If **NO** to all → ADR not required. Proceed to task definition.
-
-If **YES** to any → ADR required. Verify an ADR exists in `docs/adr/NNN-<feature-name>.md`. If missing, stop and invoke superpowers:writing-architecture-decision-records.
-
-Implementation tasks must remain consistent with the ADR. If the plan reveals a decision not captured in the ADR, update the ADR before proceeding.
+The header `**ADR:**` field is the workflow state token: downstream skills read it instead of re-classifying. If task definition later reveals a decision not captured in the ADR, update the ADR and the header before proceeding.
 
 ## Task Structure
 

@@ -46,11 +46,11 @@ Before presenting options, verify ADR alignment:
 ls docs/adr/*.md 2>/dev/null || echo "No ADR found"
 ```
 
-**If no design-affecting changes were made (simple bug fix, naming change, no boundary/responsibility/pattern/dependency changes):**
+**If the plan header says `Not required — <reason>` and the reason is plausible:**
 - Skip this gate and continue to Step 2.
 
-**If design-affecting changes were made:**
-- Check `docs/adr/` for the relevant ADR.
+**If the plan header named an ADR (or, absent a plan, superpowers:writing-architecture-decision-records classifies the change as design-affecting):**
+- Check `docs/adr/` for that ADR and confirm it matches the implementation.
 
 **If ADR is missing:**
 - Stop. Do not present merge options.

@@ -1,0 +1,5 @@
+We've decided to stop calling the payments provider synchronously from the
+checkout handler. Instead we'll publish an event and have a separate worker
+settle the charge asynchronously. This moves the settlement responsibility out
+of the request path and changes how the order service and the payments worker
+talk to each other. Let's get this decision written down before we start.
