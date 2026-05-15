@@ -20,7 +20,7 @@ Load plan, review critically, execute all tasks, report when complete.
 2. Read the plan header `**ADR:**` field.
    - If it names a path: verify that ADR exists and the plan is consistent with it. If the ADR is missing, stop and invoke superpowers:writing-architecture-decision-records.
    - If it says `Not required — <reason>`: sanity-check the reason against the ADR skill's classification table; if it looks misclassified, raise it with your human partner.
-   - If the field is absent (older plan): classify the change yourself via superpowers:writing-architecture-decision-records, then proceed.
+   - If the field is absent (older plan): classify the change yourself via superpowers:writing-architecture-decision-records. If the classification says ADR required, write or verify the ADR (stop if it is missing) before proceeding; if not required, continue.
 3. Review critically - identify any questions or concerns about the plan.
 4. If concerns: Raise them with your human partner before starting.
 5. If no concerns: Create TodoWrite and proceed.

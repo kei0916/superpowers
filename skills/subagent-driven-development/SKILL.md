@@ -44,7 +44,7 @@ digraph when_to_use {
 **ADR state:** Read the plan, then read its header `**ADR:**` field.
 - If it names a path: verify that ADR exists and the implementation will stay consistent with it. If missing, stop and invoke superpowers:writing-architecture-decision-records.
 - If it says `Not required`: sanity-check against the classification table in superpowers:writing-architecture-decision-records.
-- If absent (older plan): classify via superpowers:writing-architecture-decision-records before dispatching any subagent.
+- If absent (older plan): classify via superpowers:writing-architecture-decision-records. If the classification says ADR required, write or verify the ADR (stop if it is missing) before dispatching any subagent; if not required, dispatch.
 
 The controller and the implementer subagent share responsibility for keeping the ADR in sync; the implementer prompt carries the concrete check.
 
