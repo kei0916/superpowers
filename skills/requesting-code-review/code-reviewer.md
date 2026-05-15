@@ -24,6 +24,7 @@ Task tool (general-purpose):
 
     **Base:** {BASE_SHA}
     **Head:** {HEAD_SHA}
+    **ADR:** {ADR_STATUS_OR_PATH}
 
     ```bash
     git diff --stat {BASE_SHA}..{HEAD_SHA}
@@ -36,6 +37,11 @@ Task tool (general-purpose):
     - Does the implementation match the plan / requirements?
     - Are deviations justified improvements, or problematic departures?
     - Is all planned functionality present?
+
+    **ADR alignment:**
+    - If ADR names a path: read it and verify the implementation still matches the recorded decision.
+    - Did the implementation introduce a design-affecting decision not covered by the ADR?
+    - Report code/ADR drift at Important severity or higher.
 
     **Code quality:**
     - Clean separation of concerns?

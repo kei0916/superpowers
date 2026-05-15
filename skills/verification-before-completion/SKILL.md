@@ -32,7 +32,7 @@ BEFORE claiming any status or expressing satisfaction:
 4. VERIFY: Does output confirm the claim?
    - If NO: State actual status with evidence
    - If YES: State claim WITH evidence
-5. CHECK ADR (only if changes affect boundaries, responsibilities, patterns, or dependencies):
+5. CHECK ADR (only if the plan header named an ADR, or — absent a plan — superpowers:writing-architecture-decision-records classifies the change as design-affecting):
    - Does the relevant ADR exist in `docs/adr/`?
    - Does the implementation match the ADR?
    - If implementation diverged from ADR: Was the ADR updated to reflect the change?
