@@ -41,17 +41,12 @@ digraph when_to_use {
 
 ## The Process
 
-**Change classification:** Before reading the plan, determine whether this work requires an ADR:
+**ADR state:** Read the plan, then read its header `**ADR:**` field.
+- If it names a path: verify that ADR exists and the implementation will stay consistent with it. If missing, stop and invoke superpowers:writing-architecture-decision-records.
+- If it says `Not required`: sanity-check against the classification table in superpowers:writing-architecture-decision-records.
+- If absent (older plan): classify via superpowers:writing-architecture-decision-records before dispatching any subagent.
 
-1. **Does this change modify any boundary, interface, or data flow?**
-2. **Does this change shift responsibilities between components?**
-3. **Does this change introduce or replace a pattern, algorithm, or dependency?**
-4. **Is the root cause a design flaw that the fix corrects?**
-
-If **YES** to any → ADR required. Proceed to ADR check below.
-If **NO** to all → ADR not required. Skip ADR check and read the plan.
-
-**ADR check (if required):** Verify an ADR exists in `docs/adr/NNN-<feature-name>.md`. If missing, stop and invoke superpowers:writing-architecture-decision-records. If implementation diverges from the ADR, update the ADR before proceeding. The implementer is responsible for ADR sync.
+The controller and the implementer subagent share responsibility for keeping the ADR in sync; the implementer prompt (Task 6) carries the concrete check.
 
 ```dot
 digraph process {
@@ -72,17 +67,16 @@ digraph process {
         "Mark task complete in TodoWrite" [shape=box];
     }
 
-    "Classify change (ADR required?)" [shape=diamond];
-    "Verify ADR exists" [shape=box];
-    "Read plan, extract all tasks with full text, note context, create TodoWrite" [shape=box];
+    "Read plan file" [shape=box];
+    "Read ADR header field, verify/classify" [shape=box];
+    "Extract all tasks with full text, note context, create TodoWrite" [shape=box];
     "More tasks remain?" [shape=diamond];
     "Dispatch final code reviewer subagent for entire implementation" [shape=box];
     "Use superpowers:finishing-a-development-branch" [shape=box style=filled fillcolor=lightgreen];
 
-    "Classify change (ADR required?)" -> "Verify ADR exists" [label="yes"];
-    "Classify change (ADR required?)" -> "Read plan, extract all tasks with full text, note context, create TodoWrite" [label="no"];
-    "Verify ADR exists" -> "Read plan, extract all tasks with full text, note context, create TodoWrite";
-    "Read plan, extract all tasks with full text, note context, create TodoWrite" -> "Dispatch implementer subagent (./implementer-prompt.md)";
+    "Read plan file" -> "Read ADR header field, verify/classify";
+    "Read ADR header field, verify/classify" -> "Extract all tasks with full text, note context, create TodoWrite";
+    "Extract all tasks with full text, note context, create TodoWrite" -> "Dispatch implementer subagent (./implementer-prompt.md)";
     "Dispatch implementer subagent (./implementer-prompt.md)" -> "Implementer subagent asks questions?";
     "Implementer subagent asks questions?" -> "Answer questions, provide context" [label="yes"];
     "Answer questions, provide context" -> "Dispatch implementer subagent (./implementer-prompt.md)";
