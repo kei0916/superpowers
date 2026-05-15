@@ -14,6 +14,7 @@ SKILLS=(
     "dispatching-parallel-agents"
     "executing-plans"
     "requesting-code-review"
+    "writing-architecture-decision-records"
 )
 
 echo "=== Running Skill Triggering Tests ==="
