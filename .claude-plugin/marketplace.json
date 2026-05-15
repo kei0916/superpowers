@@ -1,9 +1,9 @@
 {
-  "name": "superpowers-dev",
-  "description": "Development marketplace for Superpowers core skills library",
+  "name": "kei0916-superpowers",
+  "description": "Personal fork of Superpowers (kei0916/superpowers) with ADR-governed development flow",
   "owner": {
-    "name": "Jesse Vincent",
-    "email": "jesse@fsck.com"
+    "name": "kei0916",
+    "email": "matui1234kei@gmail.com"
   },
   "plugins": [
     {
