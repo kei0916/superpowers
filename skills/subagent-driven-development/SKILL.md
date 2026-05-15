@@ -46,7 +46,7 @@ digraph when_to_use {
 - If it says `Not required`: sanity-check against the classification table in superpowers:writing-architecture-decision-records.
 - If absent (older plan): classify via superpowers:writing-architecture-decision-records before dispatching any subagent.
 
-The controller and the implementer subagent share responsibility for keeping the ADR in sync; the implementer prompt (Task 6) carries the concrete check.
+The controller and the implementer subagent share responsibility for keeping the ADR in sync; the implementer prompt carries the concrete check.
 
 ```dot
 digraph process {
